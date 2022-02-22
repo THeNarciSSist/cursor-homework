@@ -72,7 +72,7 @@ function convertCurrency (num) {
     }
 }
 
-console.log(convertCurrency("100$")); // 2500 uah
+// console.log(convertCurrency("100$")); // 2500 uah
 
 
 function getRandomPassword (num = 8) {
@@ -113,14 +113,11 @@ function deleteDuplicateLetter(word) {
     return a
 }, {})
 
-function removeLetter (n) {
-    return frequencies[n] === 1
+return originalWord.filter(v => frequencies[v] === 1).join("")
 }
 
-return originalWord.filter(removeLetter).join("")
-}
+console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним")) // "сктдеим"
 
-// console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним")) // "сктдеим"
 
 document.writeln(`
     1) getMaxDigit(1256) = ${getMaxDigit(1256)}<br>
