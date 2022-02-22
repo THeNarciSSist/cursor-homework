@@ -3,9 +3,7 @@
 function getMaxDigit(num) {
 
     if(Number.isInteger(num)) {
-        let numMax = String(num)
-        numMax.split("")
-        return Math.max(...numMax)
+        return Math.max(...(String(num).split("")))
     }
 
     else return "NO float numbers"
@@ -24,11 +22,13 @@ function calcNumPow (a, b) {
 
 // console.log(numPow(5, 2)); // 25
 
+
 function toUpperCaseLetter (word) {
     return word[0].toUpperCase() + word.slice(1, word.length).toLowerCase()
 }
 
 // console.log(toUpperCaseLetter("nUMBER")); // Number
+
 
 function calcSumWithTax (num) {
     let tax = 19.5 / 100;
@@ -37,11 +37,13 @@ function calcSumWithTax (num) {
 
 // console.log(calcSumWithTax(1000)); // 805
 
-function getRandomNumber (a, b) {
-    return  Math.round(Math.random() * (b - a) + a)
+
+function getRandomNumber (min, max) {
+    return  Math.round(Math.random() * (max - min) + min)
 }
 
 // console.log(getRandomNumber(1, 100)) // any number
+
 
 function countLetter(letter, word) {
 
@@ -54,8 +56,10 @@ function countLetter(letter, word) {
 
 // console.log(countLetter("а", "Асталавіста"));  // 4
 
+
 function convertCurrency (num) {
     let numRegEx = /^\d+/i;
+
     if (/^\d+[^.]\$$/.test(num)) {
         return num.match(numRegEx).join() * 25 + " грн"
     }
@@ -85,9 +89,9 @@ function getRandomPassword (num = 8) {
 
 
 function deleteLetters (letter, word) {
-    let newWord = word.toLowerCase().split("").filter(x => x !== letter)
+    let newWord = word.toLowerCase().split("").filter(x => x !== letter).join("")
 
-    return newWord.join("")
+    return newWord
 }
 
 // console.log(deleteLetters("a", "blablabla"));
@@ -96,7 +100,38 @@ function isPalyndrom(word) {
     let originalWord = word.toLowerCase().split(" ").join("")
     let reversedWord = word.toLowerCase().split("").reverse().join("").replace(/ /g, "")
 
-    return originalWord === reversedWord ? true : false
+    return originalWord === reversedWord
 }
 
 // console.log(isPalyndrom("Я несу гусеня")); // true
+
+
+function deleteDuplicateLetter(word) {
+    const originalWord = word.toLowerCase().replace(/ /g, "").split("")
+    const frequencies = originalWord.reduce((a,v) => {
+    a[v] = (a[v]||0) + 1
+    return a
+}, {})
+
+function removeLetter (n) {
+    return frequencies[n] === 1
+}
+
+return originalWord.filter(removeLetter).join("")
+}
+
+// console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним")) // "сктдеим"
+
+document.writeln(`
+    1) getMaxDigit(1256) = ${getMaxDigit(1256)}<br>
+    2) calcNumPow(5, 2) = ${calcNumPow(5, 2)}<br>
+    3) toUpperCaseLetter("nUMBER") = ${toUpperCaseLetter("nUMBER")}<br>
+    4) calcSumWithTax(1000) = ${calcSumWithTax(1000)}<br>
+    5) getRandomNumber(1, 100) = ${getRandomNumber(1, 100)}<br>
+    6) countLetter('а', 'Асталавіста') = ${countLetter('а', 'Асталавіста')}<br>
+    7) convertCurrency('100$') = ${convertCurrency('100$')}<br>
+    8) getRandomPassword(8) = ${getRandomPassword()}<br>
+    9) deleteLetters('a', 'blablabla') = ${deleteLetters('a', 'blablabla')}<br>
+    10) isPalyndrom("Я несу гусеня") = ${isPalyndrom("Я несу гусеня")}<br>
+    11) deleteDuplicateLetter("Бісквіт був дуже ніжним") = ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}
+`)
