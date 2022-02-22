@@ -60,11 +60,11 @@ function countLetter(letter, word) {
 function convertCurrency (num) {
     let numRegEx = /^\d+/i;
 
-    if (/^\d+[^.]\$$/.test(num)) {
+    if (/^\d+\$$/.test(num)) {
         return num.match(numRegEx).join() * 25 + " грн"
     }
 
-    else if(/^\d+[^.]UAH$/.test(num))
+    else if(/^\d+UAH$/i.test(num))
         return num.match(numRegEx).join() / 25 + " $"
 
     else {
@@ -72,7 +72,7 @@ function convertCurrency (num) {
     }
 }
 
-// console.log(convertCurrency("100$")); // 2500 uah
+console.log(convertCurrency("100$")); // 2500 uah
 
 
 function getRandomPassword (num = 8) {
