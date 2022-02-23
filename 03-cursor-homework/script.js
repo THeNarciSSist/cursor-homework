@@ -13,14 +13,14 @@ function getMaxDigit(num) {
 
 
 function calcNumPow (a, b) {
-    let sum = a
-    for (let i = 1; i < b; i++) {
+    let sum = 1
+    for (let i = 0; i < b; i++) {
         sum *= a
     }
     return sum
 }
 
-// console.log(numPow(5, 2)); // 25
+console.log(calcNumPow(5, 2)); // 25
 
 
 function toUpperCaseLetter (word) {
