@@ -17,7 +17,7 @@ function getBoyNames (studentsArr) {
 
 function makePairs (girlsArr, boysArr) {
 	const pairs = []
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < Math.round(students.length / 2); i++) {
 		pairs.push([`${girlsArr[i]} і ${boysArr[i]}`])
 	}
 	return pairs
@@ -26,7 +26,7 @@ function makePairs (girlsArr, boysArr) {
 
 function concatPairWithTheme (pairsArr, themesArr) {
 	const finalArr = []
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < Math.round(students.length / 2); i++) {
 		finalArr.push([...pairsArr[i], themesArr[i]])
 	}
 	return finalArr
@@ -41,15 +41,15 @@ function addStudentsMarks (studentsArr, marksArr) {
 }
 
 
-function addRandomMarks (pairAndThemeArr) {
+function addRandomMarks (pairAndThemeArr, min, max) {
 	const pairsWithRandomMarks = []
 
 	for (let pair of pairAndThemeArr) {
-		pairsWithRandomMarks.push([...pair, Math.round((Math.random() * 4) + 1)])
+		pairsWithRandomMarks.push([...pair, Math.round(Math.random() * (max - min + 1) + min - 0.5)])
 	}
 	return pairsWithRandomMarks
 }
-
+;
 
 const girls = getGirlNames(students)
 console.log(girls);
@@ -61,6 +61,6 @@ const pairAndTheme = concatPairWithTheme(pairs, themes)
 console.log(pairAndTheme);
 const studentsWithMarks = addStudentsMarks(students, marks)
 console.log(studentsWithMarks);
-const studentsWithRandomMarks = addRandomMarks(pairAndTheme)
+const studentsWithRandomMarks = addRandomMarks(pairAndTheme, 1, 5)
 console.log(studentsWithRandomMarks);
 
