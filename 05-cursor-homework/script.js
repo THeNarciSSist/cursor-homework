@@ -11,7 +11,7 @@ console.log(getRandomArray(15, 1, 10));
 
 function getModa (...numbers) {
 	let filteredArr = [], modes = []
-
+	// filter values that repeats at least 2 times
 	for(let num of [...numbers]) {
 		if(!isNaN(num)) {
 			filteredArr = [...numbers].filter((val, i, arr) => arr.indexOf(val) !== arr.lastIndexOf(val))
@@ -24,9 +24,8 @@ function getModa (...numbers) {
 }, {})
 // find maximum frequency number and compare with other values' occurrences
 let maxIndex = Math.max(...Object.values(frequencies))
-
 for (let num of new Set(filteredArr)) {
-	if(frequencies[num] === maxIndex) modes.push(num)
+	frequencies[num] === maxIndex ? modes.push(num) : null
 }
 return modes
 }
@@ -68,7 +67,7 @@ console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
 function countPositiveNumbers (...numbers) {
 	return [...numbers].filter(num => num > 0).length
 }
-console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
+console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 0));
 
 function getDividedByFive (...numbers) {
 	return [...numbers].filter(num => num % 5 === 0)
@@ -80,47 +79,38 @@ function replaceAndAddBadWords () {
 	let badWords = []
 	let goodWords = [];
 	// create "****" version of bad words
-	function tranformWords() { 
-		for (let word of badWords) {
-		let newWord = ""
-			for (let i = 0; i < word.length; i++) {
-			newWord += "*"
-		}
-		goodWords.push(newWord)
-	}
+	let tranformWords = () => { 
+		badWords.map(word => {
+			let newWord = ""
+				for (let letter of word) {
+				newWord += "*"
+			}
+			goodWords.push(newWord)
+		})
 }
-	
 	return function (string, ...newBadWords) {
 		let stringToCheck = string.split(" ")
-		let newString = []
 		// add new bad words
 		if (!badWords.includes(...newBadWords)) {
 			badWords.push(...newBadWords)
 			tranformWords()
 		}
 		// create new array with transformed bad words
-		for (let word of stringToCheck) {
-			let condition = false
+		stringToCheck.forEach((word, index) => {
 				for (let i = 0; i < badWords.length; i++) {
-					// флажок "i" чомусь не працює, хз чому. !!!(комент для суппорта)!!! *
 					let rgx = new RegExp(badWords[i], "gi")
-					if(word.includes(badWords[i])) {
-					condition = true
-					newString.push(word.replace(rgx, goodWords[i]))
+					if(word.toLowerCase().includes(badWords[i])) {
+					stringToCheck[index] = word.replace(rgx, goodWords[i])
 				}
+					else continue
 			}
-			if(!condition) newString.push(word)
-		}
-	
-	return newString.join(" ")
+		})
+	return stringToCheck.join(" ")
 	}
 }
 
 let replaceBadWords = replaceAndAddBadWords()
-// останнє слово повинно змінити, але не змінює. Другий console.log працює як задумано **
 console.log(replaceBadWords("Are you fuckingfucking kidding? OMG, shit! You are Bastard!", "fuck", "bastard", "shit"));
-console.log(" Bastard! ".replace(/bastard/i, "*******")); // *******
-
 
 
 function divideByThree(word) {
