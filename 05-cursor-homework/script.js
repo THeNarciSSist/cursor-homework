@@ -63,7 +63,7 @@ function getMedian (...numbers) {
 function filterEvenNumbers (...numbers) {
 	return [...numbers].filter(num => num % 2 !== 0)
 }
-// console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
+console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
 
 function countPositiveNumbers (...numbers) {
 	return [...numbers].filter(num => num > 0).length
@@ -74,3 +74,49 @@ function getDividedByFive (...numbers) {
 	return [...numbers].filter(num => num % 5 === 0)
 }
 // console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+
+function replaceAndAddBadWords () {
+	let badWords = []
+	let goodWords = [];
+	// create "****" version of bad words
+	function tranformWords() { 
+		for (let word of badWords) {
+		let newWord = ""
+			for (let i = 0; i < word.length; i++) {
+			newWord += "*"
+		}
+		goodWords.push(newWord)
+	}
+}
+	
+	return function (string, ...newBadWords) {
+		let stringToCheck = string.split(" ")
+		let newString = []
+		// add new bad words
+		if (!badWords.includes(...newBadWords)) {
+			badWords.push(...newBadWords)
+			tranformWords()
+		}
+		// create new array with transformed bad words
+		for (let word of stringToCheck) {
+			let condition = false
+				for (let i = 0; i < badWords.length; i++) {
+					// флажок "i" чомусь не працює, хз чому. !!!(комент для суппорта)!!! *
+					let rgx = new RegExp(badWords[i], "i")
+					if(word.includes(badWords[i])) {
+					condition = true
+					newString.push(word.replace(rgx, goodWords[i]))
+				}
+			}
+			if(!condition) newString.push(word)
+		}
+	
+	return newString.join(" ")
+	}
+}
+
+let replaceBadWords = replaceAndAddBadWords()
+// останнє слово повинно змінити, але не змінює. Другий console.log працює як задумано **
+console.log(replaceBadWords("Are you fucking kidding? OMG, shit! You are Bastard!", "fuck", "bastard", "shit"));
+console.log(" Bastard! ".replace(/bastard/i, "*******")); // *******
