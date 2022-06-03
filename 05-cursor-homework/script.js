@@ -7,7 +7,7 @@ function getRandomArray (length, min, max) {
 	}
 	return randomArr
 }
-// console.log(getRandomArray(15, 1, 10));
+console.log(getRandomArray(15, 1, 10));
 
 function getModa (...numbers) {
 	let filteredArr = [], modes = []
@@ -30,7 +30,7 @@ for (let num of new Set(filteredArr)) {
 }
 return modes
 }
-// console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 function getAverage (...numbers) {
 	let numArr = [...numbers]
@@ -42,7 +42,7 @@ function getAverage (...numbers) {
 }
 return result / numArr.length
 }
-// console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
+console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
 
 function getMedian (...numbers) {
 	let sortedArr = [...numbers].sort((a,b) => a - b)
@@ -58,7 +58,7 @@ function getMedian (...numbers) {
 	}
 
 }
-// console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 function filterEvenNumbers (...numbers) {
 	return [...numbers].filter(num => num % 2 !== 0)
@@ -68,12 +68,12 @@ console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
 function countPositiveNumbers (...numbers) {
 	return [...numbers].filter(num => num > 0).length
 }
-// console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
+console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
 
 function getDividedByFive (...numbers) {
 	return [...numbers].filter(num => num % 5 === 0)
 }
-// console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 
 function replaceAndAddBadWords () {
