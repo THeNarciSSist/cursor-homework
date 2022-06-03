@@ -103,7 +103,7 @@ function replaceAndAddBadWords () {
 			let condition = false
 				for (let i = 0; i < badWords.length; i++) {
 					// флажок "i" чомусь не працює, хз чому. !!!(комент для суппорта)!!! *
-					let rgx = new RegExp(badWords[i], "i")
+					let rgx = new RegExp(badWords[i], "gi")
 					if(word.includes(badWords[i])) {
 					condition = true
 					newString.push(word.replace(rgx, goodWords[i]))
@@ -118,5 +118,19 @@ function replaceAndAddBadWords () {
 
 let replaceBadWords = replaceAndAddBadWords()
 // останнє слово повинно змінити, але не змінює. Другий console.log працює як задумано **
-console.log(replaceBadWords("Are you fucking kidding? OMG, shit! You are Bastard!", "fuck", "bastard", "shit"));
+console.log(replaceBadWords("Are you fuckingfucking kidding? OMG, shit! You are Bastard!", "fuck", "bastard", "shit"));
 console.log(" Bastard! ".replace(/bastard/i, "*******")); // *******
+
+
+
+function divideByThree(word) {
+	const result = []
+	if (word.split('').length < 3) {
+		return "not enough letters. Write word with 4 or more letters"
+	}
+		let wordToDivide = word.toLowerCase().split('')
+		wordToDivide.map((el, i, arr) => result.push(arr.splice(i, 3, 0).join("")))
+		return result
+}
+
+console.log(divideByThree("Commander"));
