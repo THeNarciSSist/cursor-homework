@@ -76,30 +76,19 @@ console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 
 
 function replaceAndAddBadWords () {
 	let badWords = []
-	let goodWords = [];
-	// create "****" version of bad words
-	let tranformWords = () => { 
-		badWords.map(word => {
-			let newWord = ""
-				for (let letter of word) {
-				newWord += "*"
-			}
-			goodWords.push(newWord)
-		})
-}
+
 	return function (string, ...newBadWords) {
 		let stringToCheck = string.split(" ")
 		// add new bad words
 		if (!badWords.includes(...newBadWords)) {
 			badWords.push(...newBadWords)
-			tranformWords()
 		}
 		// create new array with transformed bad words
 		stringToCheck.forEach((word, index) => {
 				for (let i = 0; i < badWords.length; i++) {
 					let rgx = new RegExp(badWords[i], "gi")
 					if(word.toLowerCase().includes(badWords[i])) {
-					stringToCheck[index] = word.replace(rgx, goodWords[i])
+					stringToCheck[index] = word.replace(rgx, badWords[i].split("").fill("*").join(""))
 				}
 					else continue
 			}
@@ -109,7 +98,8 @@ function replaceAndAddBadWords () {
 }
 
 let replaceBadWords = replaceAndAddBadWords()
-console.log(replaceBadWords("Are you fuckingfucking kidding? OMG, shit! You are Bastard!", "fuck", "bastard", "shit"));
+console.log(replaceBadWords("Are you fuckingfucking kidding? OMG, shit! You are Bastard!", "fuck", "shit"));
+console.log(replaceBadWords("Are you fuckingfucking kidding? OMG, shit! You are Bastard!", "bastard"));
 
 
 function divideByThree(word) {
