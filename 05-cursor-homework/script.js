@@ -71,7 +71,7 @@ console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 0));
 function getDividedByFive (...numbers) {
 	return [...numbers].filter(num => num % 5 === 0 && num !== 0)
 }
-console.log(getDividedByFive(6, 2, 11, 78, 2, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 
 function replaceAndAddBadWords () {
