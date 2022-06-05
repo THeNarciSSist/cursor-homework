@@ -19,8 +19,9 @@ function getModa (...numbers) {
 		}
 	}
 	// count occurrences
-	const frequencies = filteredArr.reduce((a,v) => {
+	const frequencies = filteredArr.reduce((a,v, i) => {
 		a[v] = (a[v]||0) + 1
+		console.log(i);
 		return a
 }, {})
 // find maximum frequency number and compare with other values' occurrences
