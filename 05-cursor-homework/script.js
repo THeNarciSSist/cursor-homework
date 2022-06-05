@@ -2,6 +2,7 @@
 
 function getRandomArray (length, min, max) {
 	let randomArr = []
+	if (min > max) return "Min number can't be bigger than max number"
 	while (randomArr.length < length) {
 		randomArr.push(Math.round(Math.random() * (max - min + 1) + min - 0.5))
 	}
@@ -34,11 +35,10 @@ console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function getAverage (...numbers) {
 	let numArr = [...numbers]
 	let result = 0
-	for (let i = 0; i < numArr.length; i++) {
-	if(!isNaN(numArr[i])) {
-		result += numArr[i]
-	}
-}
+	numArr.forEach((el, i) => {
+		if (!isNaN(numArr[i])) {
+		result += el
+	}})
 return result / numArr.length
 }
 console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
@@ -70,7 +70,7 @@ function countPositiveNumbers (...numbers) {
 console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 0));
 
 function getDividedByFive (...numbers) {
-	return [...numbers].filter(num => num % 5 === 0)
+	return [...numbers].filter(num => num % 5 === 0 && num !== 0)
 }
 console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
@@ -118,9 +118,9 @@ function divideByThree(word) {
 	if (word.split('').length < 3) {
 		return "not enough letters. Write word with 4 or more letters"
 	}
-		let wordToDivide = word.toLowerCase().split('')
+		let wordToDivide = word.toLowerCase().replace(/\s/g, "").split("")
 		wordToDivide.map((el, i, arr) => result.push(arr.splice(i, 3, 0).join("")))
 		return result
 }
 
-console.log(divideByThree("Commander"));
+console.log(divideByThree("commander r"));
