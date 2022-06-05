@@ -19,9 +19,8 @@ function getModa (...numbers) {
 		}
 	}
 	// count occurrences
-	const frequencies = filteredArr.reduce((a,v, i) => {
+	const frequencies = filteredArr.reduce((a,v) => {
 		a[v] = (a[v]||0) + 1
-		console.log(i);
 		return a
 }, {})
 // find maximum frequency number and compare with other values' occurrences
@@ -125,3 +124,21 @@ function divideByThree(word) {
 }
 
 console.log(divideByThree("commander r"));
+
+function generateCombinations([...wordArr]) {
+	let resultArr = []
+	let result = []
+	if (wordArr.length === 1) return [wordArr]
+
+	wordArr.forEach((letter) => {
+		let temporary = generateCombinations(wordArr.filter((l, i, arr) => {arr.sort((a, b) => a - b)
+		 return arr[i] === arr[i + 1] || l !== letter}))
+		temporary = [...temporary].map(combinations => [letter, ...combinations])
+		resultArr = [...resultArr, ...temporary]
+	})
+	resultArr.forEach(element => result.push(element.join("")))
+	return  Array.from(new Set(result))
+}
+
+console.log(generateCombinations("man"));
+console.log(generateCombinations("mman"));
