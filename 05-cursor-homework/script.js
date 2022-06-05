@@ -2,7 +2,9 @@
 
 function getRandomArray (length, min, max) {
 	let randomArr = []
-	if (min > max) return "Min number can't be bigger than max number"
+	if (min > max || !Number.isInteger(min) || !Number.isInteger(max)) {
+		return "Min number can't be bigger than max number. Also do not enter float numbers"
+	}
 	while (randomArr.length < length) {
 		randomArr.push(Math.round(Math.random() * (max - min + 1) + min - 0.5))
 	}
@@ -14,7 +16,7 @@ function getModa (...numbers) {
 	let filteredArr = [], modes = []
 	// filter values that repeats at least 2 times
 	for(let num of [...numbers]) {
-		if(!isNaN(num)) {
+		if(Number.isInteger(num)) {
 			filteredArr = [...numbers].filter((val, i, arr) => arr.indexOf(val) !== arr.lastIndexOf(val))
 		}
 	}
@@ -30,21 +32,18 @@ for (let num of new Set(filteredArr)) {
 }
 return modes
 }
-console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 23.2, 23.2, 23.2));
 
 function getAverage (...numbers) {
-	let numArr = [...numbers]
+	let numArr = [...numbers].filter(num => Number.isInteger(num))
 	let result = 0
-	numArr.forEach((el, i) => {
-		if (!isNaN(numArr[i])) {
-		result += el
-	}})
+	numArr.forEach((el) => result += el)
 return result / numArr.length
 }
-console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
+console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 32.2))
 
 function getMedian (...numbers) {
-	let sortedArr = [...numbers].sort((a,b) => a - b)
+	let sortedArr = [...numbers].sort((a,b) => a - b).filter(el => Number.isInteger(el))
 
 	if(sortedArr.length % 2 !== 0) {
 		let average = Math.round(sortedArr.length / 2 - 1)
@@ -57,7 +56,7 @@ function getMedian (...numbers) {
 	}
 
 }
-console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 23.2));
 
 function filterEvenNumbers (...numbers) {
 	return [...numbers].filter(num => num % 2 !== 0)
@@ -72,7 +71,7 @@ console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 0));
 function getDividedByFive (...numbers) {
 	return [...numbers].filter(num => num % 5 === 0 && num !== 0)
 }
-console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getDividedByFive(6, 2, 11, 78, 2, 77, 57, 87, 23, 2, 56, 3, 2));
 
 
 function replaceAndAddBadWords () {
