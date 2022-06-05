@@ -2,7 +2,7 @@
 
 function getRandomArray (length, min, max) {
 	let randomArr = []
-	if (min > max || !Number.isInteger(min) || !Number.isInteger(max)) {
+	if (min > max) {
 		return "Min number can't be bigger than max number. Also do not enter float numbers"
 	}
 	while (randomArr.length < length) {
