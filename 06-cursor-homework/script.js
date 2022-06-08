@@ -32,7 +32,7 @@ const students = [{
 function getSubjects (studentObj) {
 	const {subjects} = studentObj
 	const allSubjects = Object.keys(subjects)
-	return allSubjects.map((el, i, arr) => arr[i] = (el[0].toUpperCase() + el.slice(1, el.length)).replace(/_/g, " "))
+	return allSubjects.map((el) => (el[0].toUpperCase() + el.slice(1, el.length)).replace(/_/g, ' '))
 }
 
 console.log(getSubjects(students[0]));
