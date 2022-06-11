@@ -64,4 +64,4 @@ function getMySalary () {
 	}, 10000)
 }
 
-console.log(getMySalary.call(ukraine))
+getMySalary.call(ukraine)
