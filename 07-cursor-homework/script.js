@@ -11,7 +11,7 @@ const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 // Функція повинна викликатись через call та працювати з даними через this
 
 function getMyTaxes(salary) {
-	return salary * this.tax
+	return +(salary * this.tax).toFixed(2)
 }
 
 console.log("Ukraine:", getMyTaxes.call(ukraine, 2000))
@@ -24,7 +24,7 @@ console.log("Lithuania:", getMyTaxes.call(litva, 2000))
 // (tax * middleSalary). Функція повинна викликатись через call та працювати з даними через this
 
 function getMiddleTaxes () {
-	return this.middleSalary * this.tax
+	return +(this.middleSalary * this.tax).toFixed(2)
 }
 
 console.log("Ukraine:", getMiddleTaxes.call(ukraine))
@@ -37,7 +37,7 @@ console.log("Lithuania:", getMiddleTaxes.call(litva))
 // (tax * middleSalary * vacancies). Функція повинна викликатись через call та працювати з даними через this
 
 function getTotalTaxes () {
-	return this.tax * this.middleSalary * this.vacancies
+	return +(this.tax * this.middleSalary * this.vacancies).toFixed(2)
 }
 
 console.log("Ukraine:", getTotalTaxes.call(ukraine))
@@ -52,16 +52,15 @@ console.log("Lithuania:", getTotalTaxes.call(litva))
 // profit = salary - taxes;
 
 function getMySalary () {
-	const tax = this.tax
 	setInterval(() => {
-	const randomSalary = Math.floor(Math.random() * (2000 - 1500 + 1) + 1500)
+	const randomSalary = +(Math.random() * (2000 - 1500) + 1500).toFixed(2)
 	const info = {
 		salary: randomSalary,
-		tax,
-		profit: +(randomSalary - randomSalary * tax).toFixed(),
+		taxes: getMyTaxes.call(this, randomSalary),
+		profit: +(randomSalary - randomSalary * this.tax).toFixed(2),
 	}
 	console.log(info)
-	}, 10000)
+	}, 1000)
 }
 
 getMySalary.call(ukraine)
