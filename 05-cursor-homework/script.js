@@ -2,7 +2,7 @@
 
 function getRandomArray (length, min, max) {
 	let randomArr = []
-	if (min > max) {
+	if (min > max || Number.isInteger(min) !== true ||  Number.isInteger(max) !== true) {
 		return "Min number can't be bigger than max number. Also do not enter float numbers"
 	}
 	while (randomArr.length < length) {
@@ -13,13 +13,9 @@ function getRandomArray (length, min, max) {
 console.log(getRandomArray(15, 1, 10));
 
 function getModa (...numbers) {
-	let filteredArr = [], modes = []
+	let modes = []
 	// filter values that repeats at least 2 times
-	for(let num of [...numbers]) {
-		if(Number.isInteger(num)) {
-			filteredArr = [...numbers].filter((val, i, arr) => arr.indexOf(val) !== arr.lastIndexOf(val))
-		}
-	}
+	let	filteredArr = [...numbers].filter((val, i, arr) => arr.indexOf(val) !== arr.lastIndexOf(val) && Number.isInteger(val) === true)
 	// count occurrences
 	const frequencies = filteredArr.reduce((a,v) => {
 		a[v] = (a[v]||0) + 1
@@ -32,12 +28,11 @@ for (let num of new Set(filteredArr)) {
 }
 return modes
 }
-console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 23.2, 23.2, 23.2));
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 23.2, 23.2, 23.2, 23.2, 23.2));
 
 function getAverage (...numbers) {
-	let numArr = [...numbers].filter(num => Number.isInteger(num))
-	let result = 0
-	numArr.forEach((el) => result += el)
+	const numArr = [...numbers].filter(num => Number.isInteger(num))
+	const result = numArr.reduce((acc, val) => acc + val)
 return result / numArr.length
 }
 console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 32.2))
