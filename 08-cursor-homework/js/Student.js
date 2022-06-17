@@ -28,10 +28,10 @@ export class Student {
 	}
 
 	dismiss() {
-		this.isStudent = false
+		return this.isStudent = false
 	}
 
 	recover() {
-		this.isStudent = true
+		return this.isStudent = true
 	}
 }
