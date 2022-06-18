@@ -1,0 +1,9 @@
+@mixin flexbox-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin random-bgr(){
+  background-color: rgb(random(255), random(255), random(255));
+}
