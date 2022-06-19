@@ -2,29 +2,27 @@
 
 export class Student {
 	constructor(university, course, fullName) {
-		this.university = university
-		this.course = course
-		this.fullName = fullName
-		this.marks = []
-		this.isStudent = true
+		this._university = university
+		this._course = course
+		this._fullName = fullName
+		this._marks = []
+		this._isStudent = true
 	}
 
-	get mark() {
-		if (this.isStudent) return this.marks
-		else return null
+	get marks () {
+		return this._isStudent ? this._marks : null
 	}
 	
-	set mark (value) {
-		if(this.isStudent) return this.marks.push(value)
-		else return null
+	set marks(value) {
+		return this._isStudent ? this._marks.push(value) : null
 	}
 
 	getInfo() {
-		return `Студент ${this.course}-го курсу ${this.university}, ${this.fullName}.`
+		return `Студент ${this._course}-го курсу ${this._university}, ${this._fullName}.`
 	}
 
 	getAverage() {
-		return this.marks.reduce((acc, val) => acc + val) / this.marks.length
+		return this._marks.reduce((acc, val) => acc + val) / this._marks.length
 	}
 
 	dismiss() {

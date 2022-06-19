@@ -2,7 +2,6 @@
 const keyboard = document.querySelector(".keyboard")
 const keys = document.querySelectorAll(".key")
 
-
 keyboard.addEventListener("click", function (event) {
 	event.preventDefault()
 
@@ -23,11 +22,8 @@ document.addEventListener("keydown", (event) =>  {
 	audio.play()
 	
 	clearActiveBorder()
-	clearActiveBorder()
 	addActiveBorder(key)
 	})
-
-
 
 	function clearActiveBorder () {
 			keys.forEach(el => {

@@ -6,40 +6,40 @@ const student1 = new Student("ЛНУ", "3", "Пріндин Віктор")
 
 console.log(student1.getInfo())
 
-student1.mark = 5
-student1.mark = 5
-student1.mark = 5
-student1.mark = 4
+student1.marks = 5
+student1.marks = 5
+student1.marks = 5
+student1.marks = 4
 
-console.log(student1.mark);
+console.log(student1.marks)
 
-console.log(student1.getAverage());
+console.log(student1.getAverage())
 
-console.log(student1.dismiss());
+student1.dismiss()
 
 // can't add marks after dismiss func
-console.log(student1.mark = 3)
-console.log(student1.mark);
+console.log(student1.marks = 3)
+console.log(student1.marks)
 
-console.log(student1.recover());
+student1.recover()
 
 // recover func gives access to marks
-console.log(student1.mark);
+console.log(student1.marks)
 
 
 const studentBudget1 = new budgetStudent("ЛНУ", "3", "Пріндин Віктор")
 
-console.log(studentBudget1.mark);
+console.log(studentBudget1.marks)
 
-console.log(studentBudget1.dismiss());
+studentBudget1.dismiss()
 
 // can't add marks after dismiss func
-console.log(studentBudget1.mark = 3)
-console.log(studentBudget1.mark);
+console.log(studentBudget1.marks = 3)
+console.log(studentBudget1.marks)
 
-console.log(studentBudget1.recover());
+console.log(studentBudget1.recover())
 
 // recover func gives access to marks
-console.log(studentBudget1.mark);
+console.log(studentBudget1.marks)
 
 

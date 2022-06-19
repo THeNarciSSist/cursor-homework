@@ -4,19 +4,19 @@ import { Student } from './Student.js'
 export class budgetStudent extends Student {
 	constructor(university, course, fullName) {
 		super(university, course, fullName)
-		this.studentBudget = 0
+		this._studentBudget = 0
 		// hardcoded values
-		this.marks = [5,4,3,5]
+		this._marks = [5,4,3,5]
 		this.getScholarship()
 	}
 
 	getScholarship () {
 		setInterval(() => { 
 			
-			if (this.getAverage() >= 4 && this.isStudent) {
+			if (this.getAverage() >= 4 && this._isStudent) {
 				console.log("Ви отримали 1400 грн стипендії")
-				console.log(`Ваша стипендія: ${this.studentBudget + 1400} грн.`)
-				return this.studentBudget += 1400
+				console.log(`Ваша стипендія: ${this._studentBudget + 1400} грн.`)
+				return this._studentBudget += 1400
 				}
 
 			else {
@@ -25,6 +25,5 @@ export class budgetStudent extends Student {
 				}
 			}, 30000)
 		}
-
 	}
 
