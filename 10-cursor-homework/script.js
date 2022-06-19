@@ -1,35 +1,41 @@
 
+let keyboard = document.querySelector(".keyboard")
 let keys = document.querySelectorAll(".key")
 
-/////////// UNDONE //////////////////
-// keys.forEach(el => {
-// 	el.addEventListener("click", () => {
-// 		// clearActiveClasses()
 
-// 		el.classList.add("active")
-// 		setTimeout(() => clearActiveClasses(), 0)
-// 	})
-// })
+keyboard.addEventListener("click", function (event) {
+	event.preventDefault()
 
-// // keys.forEach(el => el.addEventListener("mouseout", () => clearActiveClasses()))
-
-// function clearActiveClasses () {
-// 	keys.forEach(el => el.classList.remove("active"))
-// }
-/////////////////////////////
-
-keys.forEach((el, i) => el.addEventListener("mousedown", () => {
-	let audioId = document.getElementById(`${i}`)
-	let audio = new Audio(`${audioId.src}`)
+	let key = event.target.closest(".key")
+	let audio = new Audio(key.firstElementChild.src)
 	audio.play()
-
+	
 	clearActiveBorder()
-	el.classList.add("border-active")
-}))
+	addActiveBorder(key)
+})
 
-function clearActiveBorder () {
-		keys.forEach(el => el.classList.remove("border-active"))
-	}
+document.addEventListener("keydown", (event) =>  {
+	if(document.getElementById(`${event.key}`) === null) return
+		
+	let key = document.getElementById(`${event.key}`)
+	let audio = new Audio (key.firstElementChild.src)
+	audio.play()
+	
+	clearActiveBorder()
+	clearActiveBorder()
+	addActiveBorder(key)
+	})
 
 
 
+	function clearActiveBorder () {
+			keys.forEach(el => {
+				el.classList.remove("border-active")
+				el.classList.remove("animated")
+			})
+		}
+
+		function addActiveBorder (key) {
+			key.classList.add("animated")
+			key.classList.add("border-active")
+		}
