@@ -1,13 +1,14 @@
 
-let keyboard = document.querySelector(".keyboard")
-let keys = document.querySelectorAll(".key")
+const keyboard = document.querySelector(".keyboard")
+const keys = document.querySelectorAll(".key")
 
 
 keyboard.addEventListener("click", function (event) {
 	event.preventDefault()
 
-	let key = event.target.closest(".key")
-	let audio = new Audio(key.firstElementChild.src)
+	const key = event.target.closest(".key")
+	if(key === null) return
+	const audio = new Audio(key.firstElementChild.src)
 	audio.play()
 	
 	clearActiveBorder()
@@ -15,10 +16,10 @@ keyboard.addEventListener("click", function (event) {
 })
 
 document.addEventListener("keydown", (event) =>  {
-	if(document.getElementById(`${event.key}`) === null) return
+	if(document.getElementById(`${event.code}`) === null) return
 		
-	let key = document.getElementById(`${event.key}`)
-	let audio = new Audio (key.firstElementChild.src)
+	const key = document.getElementById(`${event.code}`)
+	const audio = new Audio (key.firstElementChild.src)
 	audio.play()
 	
 	clearActiveBorder()
