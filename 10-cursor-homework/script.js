@@ -14,7 +14,7 @@ keyboard.addEventListener("click", function (event) {
 	addActiveBorder(key)
 })
 
-document.addEventListener("keydown", (event) =>  {
+document.addEventListener("keyup", (event) =>  {
 	if(document.getElementById(`${event.code}`) === null) return
 		
 	const key = document.getElementById(`${event.code}`)
