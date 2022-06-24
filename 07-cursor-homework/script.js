@@ -57,10 +57,10 @@ function getMySalary () {
 	const info = {
 		salary: randomSalary,
 		taxes: getMyTaxes.call(this, randomSalary),
-		profit: +(randomSalary - randomSalary * this.tax).toFixed(2),
+		profit: +(randomSalary - (randomSalary * this.tax)).toFixed(2),
 	}
 	console.log(info)
-	}, 1000)
+	}, 10000)
 }
 
 getMySalary.call(ukraine)
