@@ -1,7 +1,7 @@
 "use strict"
 
 async function getRandomChinese (length) {
-	if(!Number.isInteger(length)) throw new Error("Arguments error. Only nums")
+	if(length < 0 || !Number.isInteger(length)) throw new Error("Arguments error. Only positive nums")
 
  		let symbols = []
 		for (let i = 0; i < length; i++) {
@@ -12,4 +12,4 @@ async function getRandomChinese (length) {
 			return symbols.join("")
 }
 
-getRandomChinese(4).then(result => alert(result)).catch(err => alert(err))
+getRandomChinese(-3).then(result => alert(result)).catch(err => alert(err))
