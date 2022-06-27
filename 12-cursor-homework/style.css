@@ -1,0 +1,80 @@
+*, 
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(-45deg, #e93a3a, #d22ccf, #34bbc5, #bc34de, #c03de1);
+	background-size: 1600% 1600%;
+	animation: gradientAnimation 26s ease infinite;
+}
+
+
+.notification {
+	position: fixed;
+	right: 2rem;
+	top: 0;
+	opacity: 0;
+	padding: 2rem 2.5rem;
+	border-radius: 2rem;
+	background-color: white;
+	box-shadow: 0 .9rem 2.4rem .1rem rgba(0, 0, 0, .3);
+	font-size: 1.7rem;
+	transition: all .2s linear;
+	cursor: pointer;
+}
+
+.animated {
+	animation: up-down .3s ease forwards;
+}
+
+.invisible {
+	animation: invisible .2s ease forwards;
+}
+
+@keyframes invisible {
+	0% {
+		top: 2.5rem;
+		opacity: 1;
+	}
+
+	100% {
+		top: 2.5rem;
+		opacity: 0;
+	}
+}
+
+@keyframes up-down {
+	0% {
+		opacity: 0;
+		top: 0
+	}
+
+	100% {
+		opacity: 1;
+		top: 2.5rem;
+	}
+}
+
+@keyframes gradientAnimation {
+	0% {
+		background-position:0% 48%;
+	}
+	50% {
+		background-position:100% 53%;
+	}
+	100% {
+		background-position:0% 48%;
+	}
+}
