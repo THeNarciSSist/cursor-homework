@@ -12,4 +12,4 @@ async function getRandomChinese (length) {
 			return symbols.join("")
 }
 
-getRandomChinese(-3).then(result => alert(result)).catch(err => alert(err))
+getRandomChinese(4).then(result => alert(result)).catch(err => alert(err))
