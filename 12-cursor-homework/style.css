@@ -20,9 +20,81 @@ body {
 	animation: gradientAnimation 26s ease infinite;
 }
 
+.container {
+	max-width: 120rem;
+	min-height: 100vh;
+	margin: auto;
+}
+
+.header {
+	width: 100%;
+	opacity: 0;
+	padding-top: 18rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	animation: view-up .4s .6s ease forwards;
+}
+
+.introduction {
+	text-align: center;
+}
+
+.cursor {
+	font-size: 4.5rem;
+	letter-spacing: .4rem;
+	color: white;
+	font-weight: 700;
+}
+
+.homework-title {
+	font-size: 3rem;
+	letter-spacing: .2rem;
+	color: white;
+	font-weight: 400;
+}
+
+.links {
+	margin-top: 3rem;
+	display: flex;
+	gap: 2rem;
+}
+
+.button {
+	background-color: white;
+	padding: 1rem 3rem;
+	cursor: pointer;
+	border-radius: .5rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	letter-spacing: .2rem;
+}
+
+.api-link {
+	font-weight: 700;
+	color: black;
+}
+
+.github-link {
+	font-weight: 700;
+	color: black;
+}
+
+.mouse-animation {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: white;
+	margin-top: 12rem;
+	opacity: 0;
+	animation: mouse-animation 1.3s 1.7s linear infinite;
+}
 
 .notification {
 	position: fixed;
+	z-index: 3;
 	right: 2rem;
 	top: 0;
 	opacity: 0;
@@ -31,6 +103,7 @@ body {
 	background-color: white;
 	box-shadow: 0 .9rem 2.4rem .1rem rgba(0, 0, 0, .3);
 	font-size: 1.7rem;
+	font-weight: 400;
 	transition: all .2s linear;
 	cursor: pointer;
 }
@@ -41,6 +114,34 @@ body {
 
 .invisible {
 	animation: invisible .2s ease forwards;
+}
+
+
+@keyframes view-up {
+	0% {
+		padding-top: 22rem;
+		opacity: 0;
+	}
+
+	100% {
+		padding-top: 18rem;
+		opacity: 1;
+	}
+}
+
+@keyframes mouse-animation {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		margin-top: 21rem;
+	}
 }
 
 @keyframes invisible {

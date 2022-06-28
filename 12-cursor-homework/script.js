@@ -19,8 +19,6 @@ notification.addEventListener("click", () => {
 })
 
 
-
-
 // const BASE_URL = "https://swapi.dev/api"
 
 // async function getFilm (id) {
