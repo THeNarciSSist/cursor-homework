@@ -1,35 +1,35 @@
 "use strict"
 
 export class Student {
-	constructor(university, course, fullName) {
-		this._university = university
-		this._course = course
-		this._fullName = fullName
-		this._marks = []
-		this._isStudent = true
-	}
+  constructor(university, course, fullName) {
+    this._university = university
+    this._course = course
+    this._fullName = fullName
+    this._marks = []
+    this._isStudent = true
+  }
 
-	get marks () {
-		return this._isStudent ? this._marks : null
-	}
-	
-	set marks(value) {
-		return this._isStudent ? this._marks.push(value) : null
-	}
+  get marks() {
+    return this._isStudent ? this._marks : null
+  }
 
-	getInfo() {
-		return `Студент ${this._course}-го курсу ${this._university}, ${this._fullName}.`
-	}
+  set marks(value) {
+    return this._isStudent ? this._marks.push(value) : null
+  }
 
-	getAverage() {
-		return this._marks.reduce((acc, val) => acc + val) / this._marks.length
-	}
+  getInfo() {
+    return `Студент ${this._course}-го курсу ${this._university}, ${this._fullName}.`
+  }
 
-	dismiss() {
-		return this.isStudent = false
-	}
+  getAverage() {
+    return this._marks.reduce((acc, val) => acc + val) / this._marks.length
+  }
 
-	recover() {
-		return this.isStudent = true
-	}
+  dismiss() {
+    return (this._isStudent = false)
+  }
+
+  recover() {
+    return (this._isStudent = true)
+  }
 }
