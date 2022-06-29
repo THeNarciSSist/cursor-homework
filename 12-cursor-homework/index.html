@@ -1,73 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-	<script src="script.js" defer></script>
-	<title>Cursor Homework 12</title>
-</head>
-<body class="body">
-	<div class="loading-animation">
-		<div class="lds-dual-ring"></div>
-	</div>
-	<div class="notification invisible">Click on any card to view content</div>
- <div class="container">
-	 <header class="header">
-		<div class="introduction">
-			<h1 class="cursor">Cursor Homework</h1>
-			<h2 class="homework-title">Working with the server</h2>
-		</div>
-		<div class="links">
-			<a href="#" class="button api-link">api</a>
-			<a href="#" class="button github-link">GitHub</a>
-		</div>
-		<div class="mouse-animation">&nbsp;</div>
-	</header>
-	<main>
-		<section class="section-characters">
-
-			<form name="subform" action="">
-				<span class="film-num">Select film numeration</span><select name="filmnum" id="filmid">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-				<input id="submit-button" type="button" name="submit" value="Submit"/>
-
-			<ul class="characters">
-		</ul>
-		</section>
-	</main>
-</div>
-
-<!-- <div class="micromodal-slide modal" id="modal-1" aria-hidden="true">
-	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
-		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-			<header class="modal__header">
-				<h2 class="modal__title" id="modal-1-title">
-					Character Info
-				</h2>
-				<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-			</header>
-			<main class="modal__content" id="modal-1-content">
-				<div class="character-content">
-					<p class="character-name">Name: Darth Vader</p>
-					<p class="character-birth-date">Date of birth: 1212</p>
-					<p class="character-gender">Gender: Male</p>
-				</div>
-				<img class="character-img" src="img/Wedge Antilles.jpg" alt="">
-			</main>
-			<footer class="modal__footer">
-				<button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-			</footer>
-		</div>
-	</div>
-</div> -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="script.js" defer></script>
+    <!-- <script type="module" src="functions.js" defer></script>
+		<script type="module" src="images.js" defer></script> -->
+    <title>Cursor Homework 12</title>
+  </head>
+  <body class="body">
+    <div class="loading-animation">
+      <div class="lds-dual-ring"></div>
+    </div>
+    <div class="notification invisible">Hover on any card to view content</div>
+    <div class="container">
+      <header class="header">
+        <div class="introduction">
+          <h1 class="cursor">Cursor Homework</h1>
+          <h2 class="homework-title">Working with the server</h2>
+        </div>
+        <div class="links">
+          <a href="#" class="button api-link">api</a>
+          <a href="#" class="button github-link">GitHub</a>
+        </div>
+        <div class="mouse-animation">&nbsp;</div>
+      </header>
+      <main>
+        <section class="section-characters">
+          <div class="form">
+            <form class="subform" name="subform" action="">
+              <span class="film-num"
+                >Choose any film (Default: "The Empire Strikes Back")</span
+              >
+              <select class="select-film" name="filmnum" id="filmid">
+                <option value="1">A New Hope</option>
+                <option value="2">The Empire Strikes Back</option>
+                <option value="3">Return of the Jedi</option>
+                <option value="4">The Phantom Menace</option>
+                <option value="5">Attack of the Clones</option>
+                <option value="6">Revenge of the Sith</option>
+              </select>
+              <input
+                class="submit-button"
+                id="submit-button"
+                type="button"
+                name="submit"
+                value="Submit"
+              />
+            </form>
+          </div>
+          <ul class="characters"></ul>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
