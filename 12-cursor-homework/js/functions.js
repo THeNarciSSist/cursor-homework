@@ -1,12 +1,14 @@
 "use strict"
-import { images } from "/images.js"
-import { characterList, BASE_URL } from "./script.js"
+import { images } from "./images.js"
+import { characterList, BASE_URL, planetList } from "./script.js"
 
 export async function getFilm(id = 2) {
-  if (id === 0) throw new Error("There is no such film ")
-  let request = await fetch(`${BASE_URL}/films/${id}`)
-
-  return request.json()
+  try {
+    let request = await fetch(`${BASE_URL}/films/${id}`)
+    return request.json()
+  } catch (err) {
+    alert(err)
+  }
 }
 
 export function generateCards(characters) {
@@ -40,5 +42,27 @@ export function generateCards(characters) {
     divShape.append(img)
     liElement.append(divShape, divContent)
     characterList.append(liElement)
+  })
+}
+
+export function getPlanets(id) {
+  getPlanetsFromApi(id)
+    .then((response) => response.json())
+    .then((response) => {
+      return response.results
+    })
+    .then((planets) => showPlanets(planets))
+}
+
+function getPlanetsFromApi(page) {
+  return new Promise((res) => res(fetch(`${BASE_URL}/planets/?page=${page}`)))
+}
+
+function showPlanets(planets) {
+  planets.forEach((planet) => {
+    let liElement = document.createElement("li")
+    liElement.className = "planet"
+    liElement.innerText = `${planet.name}`
+    planetList.append(liElement)
   })
 }

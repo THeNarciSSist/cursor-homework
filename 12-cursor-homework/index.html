@@ -9,16 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="script.js" defer></script>
-    <!-- <script type="module" src="functions.js" defer></script>
-		<script type="module" src="images.js" defer></script> -->
+    <script type="module" src="/js/script.js" defer></script>
     <title>Cursor Homework 12</title>
   </head>
   <body class="body">
     <div class="loading-animation">
       <div class="lds-dual-ring"></div>
     </div>
-    <div class="notification invisible">Hover on any card to view content</div>
+    <div class="notification invisible">Scroll down to view content</div>
     <div class="container">
       <header class="header">
         <div class="introduction">
@@ -35,7 +33,7 @@
         <section class="section-characters">
           <div class="form">
             <form class="subform" name="subform" action="">
-              <span class="film-num"
+              <span class="text"
                 >Choose any film (Default: "The Empire Strikes Back")</span
               >
               <select class="select-film" name="filmnum" id="filmid">
@@ -57,7 +55,22 @@
           </div>
           <ul class="characters"></ul>
         </section>
+
+        <section class="section-planets">
+          <div class="buttons">
+            <span class="text show-planets"
+              >Click buttons to show list of planets</span
+            >
+            <button class="submit-button show">Show</button>
+            <button class="submit-button previous">Previous</button>
+            <button class="submit-button next">Next</button>
+          </div>
+          <ol class="planets-list"></ol>
+        </section>
       </main>
     </div>
+    <footer>
+      <div class="footer-info">Something like footer</div>
+    </footer>
   </body>
 </html>
