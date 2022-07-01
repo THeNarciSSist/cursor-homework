@@ -22,7 +22,9 @@ export class Student {
   }
 
   getAverage() {
-    return this._marks.reduce((acc, val) => acc + val) / this._marks.length
+    return this._isStudent
+      ? this._marks.reduce((acc, val) => acc + val) / this._marks.length
+      : "Student is dismissed"
   }
 
   dismiss() {

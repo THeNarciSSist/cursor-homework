@@ -20,6 +20,7 @@ student1.dismiss()
 // can't add marks after dismiss func
 console.log((student1.marks = 3))
 console.log(student1.marks)
+console.log(student1.getAverage())
 
 student1.recover()
 
